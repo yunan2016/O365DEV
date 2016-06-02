@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/jquery-2.1.4.min.js"></script>
+    <script src="../Scripts/knockout-3.3.0.js"></script>
+
+    <script type="text/javascript">
+        var Contry_State_R = function () {
+            var self = this;
+            self.Contries = [
+               {
+
+                   'states': [{ 'id': '1', 'name': 'Beijing' },
+                                { 'id': '2', 'name': 'Shanghai' },
+                                { 'id': '3', 'name': 'Chongqing' }],
+                   'arid': '1',
+                   'name': 'China'
+               },
+               {
+
+                   'states': [{ 'id': '1', 'name': 'NY' },
+                                { 'id': '2', 'name': 'LA' },
+                                { 'id': '3', 'name': 'Boston' },
+                          ],
+                   'arid': '2',
+                   'name': 'USA'
+               }
+            
+            ];
+
+
+            self.contry = ko.observable();
+            self.subject = ko.observable();
+            self.canSave = ko.computed(function () {
+                return self.contry;
+            });
+        }
+        $(function () {
+
+
+
+
+            var model = new Contry_State_R();
+            ko.applyBindings(model);
+
+            //for (var i in model.Contries) {
+            //    if (model.Contries[i].arid == "2") {
+            //        model.contry(model.Contries[i]);
+            //        break;
+            //    }
+            //}
+
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <select data-bind="
+                     options: Contries,
+                     optionsText: 'name',
+                     value:contry,
+                     optionsCaption: 'please select'"></select>
+    <!-- ko with:contry -->
+    <select data-bind="
+                        visible:$parent.contry,
+                        options: states,
+                        optionsText: 'name',
+                        value:$parent.subject,
+                        optionsCaption: 'please select'"></select>
+    <!-- /ko -->
+    <br />
+    <input type="button" data-bind="enable: contry>1" value="button" />
+
+</body>
+</html>

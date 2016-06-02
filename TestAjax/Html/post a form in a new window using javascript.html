@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/jquery-2.1.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            document.body.innerHTML += '<form id="dynForm" action="2053553.aspx" method="post" target="TheWindow"><input type="hidden" name="BillId"/> <input type="hidden" name="ClientAccountId"/></form>';
+            var f = document.getElementById('dynForm');
+            f.BillId.value = "1";
+            f.ClientAccountId.value = "2";
+            window.open('', 'TheWindow', 'width=640, height=480, left=0, top=0');
+            f.submit();
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

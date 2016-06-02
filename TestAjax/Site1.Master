@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="TestAjax.Site1" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <div style="text-align: center;">
+            <asp:UpdatePanel ID="UpdatePanelParent" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div style="text-align: center; width: 100px; height: 100px; border-top: solid 20px #A6ABC4; float: left; margin-left: 20px; margin-top: 20px; margin-bottom: 25px;">
+                        <asp:Image ID="iprofile" runat="server" BorderStyle="Solid" BorderColor="gold" BorderWidth="1px" /><br />
+
+                        <asp:Label ID="lname" runat="server" Font-Bold="True" Style="color: ghostwhite;" />
+                    </div>
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </form>
+</body>
+</html>

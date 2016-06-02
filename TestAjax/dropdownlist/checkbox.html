@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/jquery-2.1.4.min.js"></script>
+    <link href="../css/multi-select.css" rel="stylesheet" />
+    <script src="../Scripts/jquery.multi-select.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            // Default options
+            $("#control_1").multiSelect();
+
+        });
+
+    </script>
+
+    <style type="text/css">
+        HTML {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        H2 {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 1em 0em .25em 0em;
+        }
+
+        P {
+            margin: 1em 0em;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Control 1: Default options</h2>
+    <p>
+        <select id="control_1" name="control_1[]" multiple="multiple" size="5">
+            <option value=""></option>
+            <optgroup label="Optgroup 1">
+                <option value="option_1">Option 1</option>
+                <option value="option_2">Option 2</option>
+            </optgroup>
+            <optgroup label="Optgroup 2">
+                <option value="option_3">Option 3</option>
+                <option value="option_4">Option 4</option>
+                <option value="option_5">Option 5</option>
+                <option value="option_6">Option 6</option>
+                <option value="option_7">Option 7</option>
+                <option value="option_8">Option 8</option>
+            </optgroup>
+
+            <optgroup label="Optgroup 3">
+                <option value="option_9">Option 9</option>
+                <option value="option_10">Option 10</option>
+                <option value="option_11">Option 11</option>
+                <option value="option_12">Option 12</option>
+            </optgroup>
+        </select>
+    </p>
+
+</body>
+</html>

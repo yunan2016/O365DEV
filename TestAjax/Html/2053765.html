@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JQuery Fiter</title>
+    <style type="text/css">
+        table {
+            border: 0;
+            border-collapse: collapse;
+        }
+
+        div {
+            font: normal 12px/17px Arial;
+        }
+
+        td {
+            font: normal 12px/17px Arial;
+            padding: 2px;
+            width: 100px;
+        }
+
+        th {
+            font: bold 12px/17px Arial;
+            text-align: left;
+            padding: 4px;
+            border-bottom: 1px solid #333;
+            width: 100px;
+        }
+    </style>
+    <script src="../Scripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#filterName").keyup(function () {
+                $("table tbody tr")
+                          .hide()
+                          .filter(":contains('" + ($(this).val()) + "')")
+                          .show();
+            })
+        })
+    </script>
+</head>
+<body>
+    <div> <br /> Fiter： <input id="filterName" name="filterName" />
+    <br /> </div>
+    <table>
+        <thead>
+            <tr><th>name</th><th>sex</th><th>location</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>SYJ</td><td>male</td><td>washington</td></tr>
+            <tr><td>PETER</td><td>female</td><td>sydney</td></tr>
+            <tr><td>COLLINA</td><td>male</td><td>wuxi</td></tr>
+            <tr><td>CHERRY</td><td>male</td><td>london</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

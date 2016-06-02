@@ -1,0 +1,2372 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.dataTables.min.js"></script>
+    <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#example').DataTable();
+        });
+
+        function test() {
+            var fatype; var Satype;
+            if (formFields[i].column == 'TypeId') {
+                if (currentValue == "2F18F".toLowerCase() || currentValue == "3737D".toLowerCase()) {
+                    fatype = "sum";
+                    Satype = "add";
+                }
+            }
+            if (formFields[i].column == 'CodeID') {
+                if (fatype == "sum" || Satype == "add") {
+                    formFields[i].ref.set('value', (currentValue == null || currentValue == '') ? 'SPA' : currentValue);
+                }
+            }
+
+            if (formFields[i].column == 'TypeId') {
+                if (currentValue == "DE8E5".toLowerCase() || currentValue == "9EE15".toLowerCase()) {
+                    Patype = "sub";
+                    Notype = "mult";
+                }
+            }
+            if (formFields[i].column == 'CodeID') {
+                if (Pattype == "sub" || Nottype == "mult") {
+                    formFields[i].ref.set('value', (currentValue == null || currentValue == '') ? 'FSA' : currentValue);
+                }
+            }
+        }
+
+        function down(target,event) {
+            var event = event || window.event; 
+            if (event.keyCode == 40 ) {
+                var nextRow = $(target).closest("tr").next().find("input");
+                if (nextRow.length > 0) {
+                    nextRow[0].focus();
+                }
+                else {
+                    $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
+                    $(target).blur();
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <table class="display" id="example" cellspacing="0">
+
+        <thead>
+
+            <tr>
+
+                <th>Name</th>
+
+                <th>Age</th>
+
+                <th>Position</th>
+
+                <th>Office</th>
+
+            </tr>
+
+        </thead>
+
+
+
+        <tfoot>
+
+            <tr>
+
+                <th>Name</th>
+
+                <th>Age</th>
+
+                <th>Position</th>
+
+                <th>Office</th>
+
+            </tr>
+
+        </tfoot>
+
+
+
+        <tbody>
+
+            <tr>
+
+                <td>Tiger Nixon</td>
+
+                <td><input name="row-1-age" id="row-1-age" type="text" value="61" onkeydown="down(this,event)" /></td>
+
+                <td><input name="row-1-position" id="row-1-position" type="text" value="System Architect"></td>
+
+                <td>
+                    <select name="row-1-office" id="row-1-office" size="1">
+
+                        <option value="Edinburgh" selected="">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Garrett Winters</td>
+
+                <td><input name="row-2-age" id="row-2-age" type="text" value="63" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-2-position" id="row-2-position" type="text" value="Accountant" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-2-office" id="row-2-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo" selected="">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Ashton Cox</td>
+
+                <td><input name="row-3-age" id="row-3-age" type="text" value="66" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-3-position" id="row-3-position" type="text" value="Junior Technical Author" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-3-office" id="row-3-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Cedric Kelly</td>
+
+                <td><input name="row-4-age" id="row-4-age" type="text" value="22" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-4-position" id="row-4-position" type="text" value="Senior Javascript Developer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-4-office" id="row-4-office" size="1">
+
+                        <option value="Edinburgh" selected="">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Airi Satou</td>
+
+                <td><input name="row-5-age" id="row-5-age" type="text" value="33" onkeydown="down(this,event)" ></td>
+
+                <td><input name="row-5-position" id="row-5-position" type="text" value="Accountant" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-5-office" id="row-5-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo" selected="">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Brielle Williamson</td>
+
+                <td><input name="row-6-age" id="row-6-age" type="text" value="61" onkeydown="down(this,event)" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-6-position" id="row-6-position" type="text" value="Integration Specialist" onkeydown="down(this,event)" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-6-office" id="row-6-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York" selected="">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Herrod Chandler</td>
+
+                <td><input name="row-7-age" id="row-7-age" type="text" value="59" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-7-position" id="row-7-position" type="text" value="Sales Assistant" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-7-office" id="row-7-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Rhona Davidson</td>
+
+                <td><input name="row-8-age" id="row-8-age" type="text" value="55" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-8-position" id="row-8-position" type="text" value="Integration Specialist" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-8-office" id="row-8-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo" selected="">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Colleen Hurst</td>
+
+                <td><input name="row-9-age" id="row-9-age" type="text" value="39" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-9-position" id="row-9-position" type="text" value="Javascript Developer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-9-office" id="row-9-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Sonya Frost</td>
+
+                <td><input name="row-10-age" id="row-10-age" type="text" value="23" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-10-position" id="row-10-position" type="text" value="Software Engineer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-10-office" id="row-10-office" size="1">
+
+                        <option value="Edinburgh" selected="">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Jena Gaines</td>
+
+                <td><input name="row-11-age" id="row-11-age" type="text" value="30" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-11-position" id="row-11-position" type="text" value="Office Manager" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-11-office" id="row-11-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London" selected="">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Quinn Flynn</td>
+
+                <td><input name="row-12-age" id="row-12-age" type="text" value="22" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-12-position" id="row-12-position" type="text" value="Support Lead" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-12-office" id="row-12-office" size="1">
+
+                        <option value="Edinburgh" selected="">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Charde Marshall</td>
+
+                <td><input name="row-13-age" id="row-13-age" type="text" value="36" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-13-position" id="row-13-position" type="text" value="Regional Director" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-13-office" id="row-13-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Haley Kennedy</td>
+
+                <td><input name="row-14-age" id="row-14-age" type="text" value="43" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-14-position" id="row-14-position" type="text" value="Senior Marketing Designer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-14-office" id="row-14-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London" selected="">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Tatyana Fitzpatrick</td>
+
+                <td><input name="row-15-age" id="row-15-age" type="text" value="19" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-15-position" id="row-15-position" type="text" value="Regional Director" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-15-office" id="row-15-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London" selected="">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Michael Silva</td>
+
+                <td><input name="row-16-age" id="row-16-age" type="text" value="66" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-16-position" id="row-16-position" type="text" value="Marketing Designer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-16-office" id="row-16-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London" selected="">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Paul Byrd</td>
+
+                <td><input name="row-17-age" id="row-17-age" type="text" value="64" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-17-position" id="row-17-position" type="text" value="Chief Financial Officer (CFO)" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-17-office" id="row-17-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York" selected="">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Gloria Little</td>
+
+                <td><input name="row-18-age" id="row-18-age" type="text" value="59" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-18-position" id="row-18-position" type="text" value="Systems Administrator" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-18-office" id="row-18-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York" selected="">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Bradley Greer</td>
+
+                <td><input name="row-19-age" id="row-19-age" type="text" value="41" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-19-position" id="row-19-position" type="text" value="Software Engineer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-19-office" id="row-19-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London" selected="">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Dai Rios</td>
+
+                <td><input name="row-20-age" id="row-20-age" type="text" value="35" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-20-position" id="row-20-position" type="text" value="Personnel Lead" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-20-office" id="row-20-office" size="1">
+
+                        <option value="Edinburgh" selected="">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Jenette Caldwell</td>
+
+                <td><input name="row-21-age" id="row-21-age" type="text" value="30" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-21-position" id="row-21-position" type="text" value="Development Lead" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-21-office" id="row-21-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York" selected="">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Yuri Berry</td>
+
+                <td><input name="row-22-age" id="row-22-age" type="text" value="40" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-22-position" id="row-22-position" type="text" value="Chief Marketing Officer (CMO)" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-22-office" id="row-22-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York" selected="">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Caesar Vance</td>
+
+                <td><input name="row-23-age" id="row-23-age" type="text" value="21" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-23-position" id="row-23-position" type="text" value="Pre-Sales Support" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-23-office" id="row-23-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York" selected="">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Doris Wilder</td>
+
+                <td><input name="row-24-age" id="row-24-age" type="text" value="23" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-24-position" id="row-24-position" type="text" value="Sales Assistant" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-24-office" id="row-24-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Angelica Ramos</td>
+
+                <td><input name="row-25-age" id="row-25-age" type="text" value="47" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-25-position" id="row-25-position" type="text" value="Chief Executive Officer (CEO)" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-25-office" id="row-25-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London" selected="">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Gavin Joyce</td>
+
+                <td><input name="row-26-age" id="row-26-age" type="text" value="42" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-26-position" id="row-26-position" type="text" value="Developer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-26-office" id="row-26-office" size="1">
+
+                        <option value="Edinburgh" selected="">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Jennifer Chang</td>
+
+                <td><input name="row-27-age" id="row-27-age" type="text" value="28" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-27-position" id="row-27-position" type="text" value="Regional Director" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-27-office" id="row-27-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Brenden Wagner</td>
+
+                <td><input name="row-28-age" id="row-28-age" type="text" value="28" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-28-position" id="row-28-position" type="text" value="Software Engineer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-28-office" id="row-28-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Fiona Green</td>
+
+                <td><input name="row-29-age" id="row-29-age" type="text" value="48" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-29-position" id="row-29-position" type="text" value="Chief Operating Officer (COO)" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-29-office" id="row-29-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Shou Itou</td>
+
+                <td><input name="row-30-age" id="row-30-age" type="text" value="20" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-30-position" id="row-30-position" type="text" value="Regional Marketing" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-30-office" id="row-30-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo" selected="">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Michelle House</td>
+
+                <td><input name="row-31-age" id="row-31-age" type="text" value="37" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-31-position" id="row-31-position" type="text" value="Integration Specialist" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-31-office" id="row-31-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Suki Burks</td>
+
+                <td><input name="row-32-age" id="row-32-age" type="text" value="53" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-32-position" id="row-32-position" type="text" value="Developer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-32-office" id="row-32-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London" selected="">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Prescott Bartlett</td>
+
+                <td><input name="row-33-age" id="row-33-age" type="text" value="27" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-33-position" id="row-33-position" type="text" value="Technical Author" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-33-office" id="row-33-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London" selected="">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Gavin Cortez</td>
+
+                <td><input name="row-34-age" id="row-34-age" type="text" value="22" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-34-position" id="row-34-position" type="text" value="Team Leader" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-34-office" id="row-34-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Martena Mccray</td>
+
+                <td><input name="row-35-age" id="row-35-age" type="text" value="46" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-35-position" id="row-35-position" type="text" value="Post-Sales support" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-35-office" id="row-35-office" size="1">
+
+                        <option value="Edinburgh" selected="">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Unity Butler</td>
+
+                <td><input name="row-36-age" id="row-36-age" type="text" value="47" onkeydown="down(this,event)" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-36-position" id="row-36-position" type="text" value="Marketing Designer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-36-office" id="row-36-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Howard Hatfield</td>
+
+                <td><input name="row-37-age" id="row-37-age" type="text" value="51" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-37-position" id="row-37-position" type="text" value="Office Manager" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-37-office" id="row-37-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Hope Fuentes</td>
+
+                <td><input name="row-38-age" id="row-38-age" type="text" value="41" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-38-position" id="row-38-position" type="text" value="Secretary" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-38-office" id="row-38-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Vivian Harrell</td>
+
+                <td><input name="row-39-age" id="row-39-age" type="text" value="62" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-39-position" id="row-39-position" type="text" value="Financial Controller" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-39-office" id="row-39-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco" selected="">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Timothy Mooney</td>
+
+                <td><input name="row-40-age" id="row-40-age" type="text" value="37" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-40-position" id="row-40-position" type="text" value="Office Manager" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-40-office" id="row-40-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London" selected="">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Jackson Bradshaw</td>
+
+                <td><input name="row-41-age" id="row-41-age" type="text" value="65" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-41-position" id="row-41-position" type="text" value="Director" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-41-office" id="row-41-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York" selected="">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Olivia Liang</td>
+
+                <td><input name="row-42-age" id="row-42-age" type="text" value="64" onkeydown="down(this,event)"></td>
+
+                <td><input name="row-42-position" id="row-42-position" type="text" value="Support Engineer" onkeydown="down(this,event)"></td>
+
+                <td>
+                    <select name="row-42-office" id="row-42-office" size="1">
+
+                        <option value="Edinburgh">
+
+                            Edinburgh
+
+                        </option>
+
+
+
+                        <option value="London">
+
+                            London
+
+                        </option>
+
+
+
+                        <option value="New York">
+
+                            New York
+
+                        </option>
+
+
+
+                        <option value="San Francisco">
+
+                            San Francisco
+
+                        </option>
+
+
+
+                        <option value="Tokyo">
+
+                            Tokyo
+
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+
+
+        </tbody>
+
+    </table>
+</body>
+</html>

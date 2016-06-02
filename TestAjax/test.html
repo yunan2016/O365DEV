@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>tab页切换</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+        function switchTab(ProTag, ProBox) {
+            for (i = 1; i < 3; i++) {
+                if ("tab" + i == ProTag) {
+                    document.getElementById(ProTag).getElementsByTagName("a")[0].className = "on";
+                } else {
+                    document.getElementById("tab" + i).getElementsByTagName("a")[0].className = "";
+                }
+                if ("con" + i == ProBox) {
+                    document.getElementById(ProBox).style.display = "";
+                    document.getElementById("con" + i).style.border = "1px solid"
+                } else {
+                    document.getElementById("con" + i).style.display = "none";
+                   
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            line-height: 25px;
+            font-size: 12px;
+            list-style: none;
+        }
+
+        #tabContainer {
+            margin: 30px;
+        }
+
+            #tabContainer li {
+                float: left;
+                width: 80px;
+                margin: 0 ;
+                background: #efefef;
+                text-align: center;
+            }
+
+            #tabContainer a {
+                display: block;
+            }
+
+                #tabContainer a.on {
+                    background:blue;
+                   
+                }
+    </style>
+</head>
+<body>
+    <div id="tabContainer">
+        <ul>
+            <li id="tab1">
+                <a href="#" class="on" onclick="switchTab('tab1','con1');this.blur();return false;">
+                    Login
+                </a>
+            </li>
+            <li id="tab2">
+                <a href="#" onclick="switchTab('tab2','con2');this.blur();return false;">
+                    Register
+                </a>
+            </li>
+          
+        </ul>
+        <div style="clear: both">
+        </div>
+        <div id="con1" style="border:1px solid">
+            <div>
+                <label>UserName:</label><input type="text" id="UserName" />
+            </div>
+            <div>
+                <label>Password:</label><input type="password" id="Password" />
+            </div>
+            <div id="loginButton">
+                <input type="button" id="PopLogin" value="Login" onclick="login()" />
+                <input type="button" style="margin-left:15px" value="Close" onclick="HideInfo()" />
+            </div>
+        </div>
+        <div id="con2" style="display: none">
+            <div>
+                <label>UserName:</label><input type="text" id="UserName" />
+            </div>
+            <div>
+                <label>Password:</label><input type="password" id="Password" />
+            </div>
+            <div  id="EmailInfo">
+                <label>Email:</label><input type="text" id="Email" />
+            </div>
+            <div class="registerInfo" name="registerInfo" id="registerButton">
+                <input type="button" id="PopRegister" value="Register" onclick="register()" />
+                <input type="button" style="margin-left:15px" value="Close" onclick="HideInfo()" />
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>

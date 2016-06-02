@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/bootstrap-multiselect.js"></script>
+    <link href="css/bootstrap-multiselect.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        $(function() {
+            $('#srchpattern').bind('keyup change', function (ev) {
+                setHighLight();
+            });
+            setHighLight();
+        });
+        function setHighLight(){
+               // pull in the new value
+                var searchTerm = $("#srchpattern'").val();
+
+            // remove any old highlighted terms
+            $('body').removeHighlight();
+
+            // disable highlighting if empty
+            if ( searchTerm ) {
+                // highlight the new term
+                $('body').highlight( searchTerm );
+            }
+
+        }
+
+    </script>
+    <script type="text/javascript">
+        var returnvalue = 0;
+        function GetConfig() {
+            $.ajax({
+                type: "GET",
+                url: "title.xml",
+                datatype: "xml",
+                success: function (xml) {
+                    var LatestConfig = $(xml).find('Root').find('orders').find('OrderID').text();
+                    //alert("success Values is :" + LatestConfig);
+                    // returnvalue = LatestConfig;
+                    window.returnvalue = LatestConfig;
+
+                },
+                error: function (xhr, status, error) {
+                    //alert("Service Call Failed !" + error);
+                   
+                }
+            });
+
+            
+        }
+        function callFunctionName() {
+            GetConfig(); 
+            var interval = window.setInterval(function () {
+                if (window.returnvalue != 0) {
+                    alert(window.returnvalue);
+                    window.clearInterval(interval);
+                }
+            }, 10);
+
+        }
+
+        function DetailView() {
+            var newwindow = window.open('test.html', 'popup', 'width=1020,height=700,scrollbars=yes,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=10,top=5');
+            if (window.focus) {
+                newwindow.focus();
+            }
+            if (!newwindow.closed) {
+                newwindow.focus();
+            }
+          
+        }
+    </script>
+
+</head>
+<body>
+    <select id="example-getting-started" multiple="multiple">
+        <option value="cheese">Cheese</option>
+        <option value="tomatoes">Tomatoes</option>
+        <option value="mozarella">Mozzarella</option>
+        <option value="mushrooms">Mushrooms</option>
+        <option value="pepperoni">Pepperoni</option>
+        <option value="onions">Onions</option>
+    </select>
+    <input id="Button1" type="button" value="button" onclick=" callFunctionName()" />
+    <a href="javascript:DetailView()" onclick="DetailView();">click me</a>
+</body>
+</html>

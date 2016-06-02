@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function test() {
+            //var oPop = window.open();
+            //oPop.document.write('1232323内容');
+            //oPop.document.execCommand('Saveas', true, '');
+            ////oPop.document.execCommand("SaveAs");
+            //oPop.close();
+
+            
+            Response.ContentType = "application/html";
+            Response.AddHeader("content-disposition", "attachment; filename="+test+".json");
+            Response.WriteFile("D:\A.json");
+            Response.End();
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <input type="button" onclick="test()" />
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js" type="text/javascript"></script>
+</head>
+<body>
+    <button data-bind="click: handleClick">Click me</button>
+    <script type="text/javascript">
+        var viewmodel = function () {
+            self.projectsVisible = ko.observable(false);
+            self.handleClick = function () {
+                self.projectsVisible.valueHasMutated();
+            };
+            self.projectsVisible.subscribe(function (newValue) { alert(newValue); });
+        }
+
+        ko.applyBindings(viewmodel);
+
+    </script>
+</body>
+</html>

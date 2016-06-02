@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="TestAjax.UserControls.Site1" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="../Scripts/jquery-2.1.4.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        function openNew() {
+            var value = document.getElementById('<%=FormView1.FindControl("txtendtime").ClientID%>').value;
+            window.open('WebForm3.aspx?selected=' + value, 250, 220)
+        }
+        $(function () {
+            $(".datepicker").datepicker();
+        });
+
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <asp:FormView ID="FormView1" runat="server">
+                <ItemTemplate>
+                    <table>
+                        <tr>
+                            <td>StartTime:</td>
+                            <td>
+                                <asp:Label ID="lblstarttime" runat="server" Text='<%#Eval("StartTime") %>'></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EndTime:</td>
+                            <td>
+                                <asp:TextBox ID="txtendtime" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Duration:</td>
+                            <td>
+                                <asp:TextBox ID="txtDuration" runat="server" CssClass="datepicker"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <a onclick="openNew()">
+                            <img src="images/button/calendar.gif" style="border-bottom-width: 0pt; cursor: pointer"
+                                id="image4" /></a>
+                    </table>
+                </ItemTemplate>
+            </asp:FormView>
+        </div>
+    </form>
+</body>
+</html>

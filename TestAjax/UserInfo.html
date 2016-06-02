@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        #popUserInfo {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+            #popUserInfo label {
+                width: 100px;
+                display: inline-block;
+            }
+
+            #popUserInfo input[type=text] {
+                width: 150px;
+                margin: 2px;
+                margin-left: 2px;
+            }
+
+
+        input[type=button] {
+            width: 70px;
+            margin-top: 20px;
+        }
+
+        #lblTitle {
+            border-bottom: 1px solid;
+            height: 30px;
+            font-size: x-large;
+        }
+
+        .registerInfo {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var name = GetQuery("name");
+            if (!!name) {
+                var info = document.getElementById("lblTitle");
+                info.innerHTML = name;
+                if (name == "Register") {
+                    var g = document.getElementsByName("registerInfo");
+                    for (i = 0; i < g.length; i++) {
+                        document.getElementById(g[i].id).className = "";
+                    }
+                    document.getElementById("loginButton").className = "registerInfo";
+                }
+            }
+
+        }
+        //get param by get
+        function GetQuery(key) {
+            var search = location.search.slice(1); 
+            var arr = search.split("&");
+            for (var i = 0; i < arr.length; i++) {
+                var ar = arr[i].split("=");
+                if (ar[0] == key) {
+                    return ar[1];
+                }
+            }
+        }
+        //check email
+        function checkemail(email) {
+            var str = email;
+            var re = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+            var objExp = new RegExp(re);
+            if (objExp.test(str) == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        //login function
+        function login() {
+            if (!checkBasicInput(false)) {
+                return;
+            }
+            RequestWebService();
+        }
+        //register function
+        function register() {
+            if (!checkBasicInput(true)) {
+                return;
+            }
+            RequestWebService();
+        }
+        //check basic info
+        function checkBasicInput(flag) {
+            if (document.getElementById("UserName").value == "") {
+                alert("UserName is necessary");
+                return false;
+            }
+            if (document.getElementById("Password").value == "") {
+                alert("Password is necessary");
+                return false;
+            }
+            if (flag) {
+                if (document.getElementById("Email").value == "") {
+                    alert("Email is necessary");
+                    return false;
+                }
+                var emailInfo = document.getElementById("Email");
+                if (!checkemail(emailInfo.value)) {
+                    alert("wrong email fomat");
+                    emailInfo.innerText = "";
+                    emailInfo.focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+        //call webservice with post
+        function RequestWebService() {
+            var URL = "LoginOperator.asmx";
+            var data;
+            data = '<?xml version="1.0" encoding="utf-8"?>';
+            data = data + '<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">';
+            data = data + '<soap12:Body>';
+            data = data + '<HelloWorld xmlns="http://tempuri.org/" />';
+            data = data + '</soap12:Body>';
+            data = data + '</soap12:Envelope>';
+
+            //创建异步对象
+            var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            xmlhttp.Open("POST", URL, false);
+            xmlhttp.SetRequestHeader("Content-Type", "application/soap+xml");
+            xmlhttp.Send(data);
+
+            document.write(xmlhttp.responseText);
+        }
+
+    </script>
+</head>
+<body>
+    <div id="lblTitle"></div>
+    <div id="popUserInfo">
+        <div>
+            <label>UserName:</label><input type="text" id="UserName" />
+        </div>
+        <div>
+            <label>Password:</label><input type="password" id="Password" />
+        </div>
+        <div class="registerInfo" name="registerInfo" id="EmailInfo">
+            <label>Email:</label><input type="text" id="Email" />
+        </div>
+        <div id="loginButton">
+            <input type="button" id="PopLogin" value="Login" onclick="login()" />
+            <input type="button" style="margin-left:15px" value="Close" onclick="close()" />
+        </div>
+        <div class="registerInfo" name="registerInfo" id="registerButton">
+            <input type="button" id="PopRegister" value="Register" onclick="register()" />
+            <input type="button" style="margin-left:15px" value="Close" onclick="close()" />
+        </div>
+    </div>
+</body>
+</html>

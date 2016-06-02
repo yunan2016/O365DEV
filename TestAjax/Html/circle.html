@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/jquery-2.1.4.js"></script>
+    <script type="text/javascript">
+        function changeSeconds()
+        {
+            var time=$("#secondValue").val();
+            $("#circle").empty();
+            var newdiv1 = "<div class='pie spinner' style='animation:rota " + time + "s linear infinite'></div>";
+            $("#circle").append(newdiv1);
+
+            var newdiv2 = "<div class='pie filler' style='animation:opa " + time + "s steps(1, end) infinite reverse'></div>";
+            $("#circle").append(newdiv2);
+
+            var newdiv3 = "<div class='mask' style='animation:opa " + time + "s steps(1, end) infinite'></div>";
+            $("#circle").append(newdiv3);
+        }
+    </script>
+
+    <style type="text/css">
+        .wrapper {
+            position: relative;
+            margin: 40px auto;
+            background: white;
+        }
+
+            .wrapper, .wrapper * {
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+        .wrapper {
+            width: 250px;
+            height: 250px;
+        }
+
+            .wrapper .pie {
+                width: 50%;
+                height: 100%;
+                transform-origin: 100% 50%;
+                position: absolute;
+                background: #08C;
+                border: 5px solid rgba(0,0,0,0.5);
+            }
+
+            .wrapper .spinner {
+                border-radius: 100% 0 0 100% / 50% 0 0 50%;
+                z-index: 200;
+                border-right: none;
+                animation: rota 5s linear infinite;
+            }
+
+            .wrapper:hover .spinner,
+            .wrapper:hover .filler,
+            .wrapper:hover .mask {
+                animation-play-state: running;
+            }
+
+            .wrapper .filler {
+                border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+                left: 50%;
+                opacity: 0;
+                z-index: 100;
+                animation: opa 5s steps(1, end) infinite reverse;
+                border-left: none;
+            }
+
+            .wrapper .mask {
+                width: 50%;
+                height: 100%;
+                position: absolute;
+                background: inherit;
+                opacity: 1;
+                z-index: 300;
+                animation: opa 5s steps(1, end) infinite;
+            }
+
+        @keyframes rota {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes opa {
+            0% {
+                opacity: 1;
+            }
+
+            50%, 100% {
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="circle" class="wrapper">
+        <div  class="pie spinner" ></div>
+        <div  class="pie filler" ></div>
+        <div  class="mask" ></div>
+    </div>
+    <div id="test"></div>
+    <input type="text" id="secondValue" /> s loop compelete
+    <input type="button" value="start" onclick="changeSeconds()"> 
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        function vailidAlphabets() {
+            //var reMail = /^(?:[a-z\d]+[_\-\+\.]?)*[a-z\d]+@(?:([a-z\d-]+\-?)*[a-z\d]+\.){1,2}([a-z]{2,})+$/i;
+            var regex = /^[a-zA-Z\s]+$/;
+            alert(regex.test(document.getElementById("test").value))
+        }
+        function vailidEmail()
+        {
+             isValidMail(document.getElementById("test").value)
+        }
+        $(function () {
+            $("#test").keyup(function () {
+                var regex = /^[a-zA-Z\s]+$/;
+                if (!regex.test($("#test").val())) {
+                    alert('Please Enter Alphabat');
+                    $("#test").val("");
+                }
+            });
+        })
+     
+    </script>
+</head>
+<body>
+    <input type="text" id="test">
+    <input type="button" onclick="vailidAlphabets()" value="valid"/>
+</body>
+</html>

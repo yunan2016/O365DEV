@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/jquery-2.1.4.min.js"></script>
+    <script src="../Scripts/knockout-3.3.0.js"></script>
+    <script type="text/javascript">
+        var CountryModel = function (data) {
+            var self = this;
+            self.id = ko.observable(data.id);
+            self.name = ko.observable(data.name);
+        };
+        var viewModel = function (data) {
+            var self = this;
+            self.selectedChoice = ko.observable();
+            self.countries = ko.observableArray([
+                 new CountryModel({ id: "1", name: "UK" }),
+                 new CountryModel({ id: "2", name: "USA" })]);
+            self.sendMe = function () {
+                alert(ko.toJSON({ selectedCountryId: this.selectedChoice() }));
+            };
+        };
+        $(function () { ko.applyBindings(new viewModel()); });
+        
+    </script>
+</head>
+<body>
+    <select data-bind="options: countries, optionsText: 'name', optionsValue: 'id', value: selectedChoice, optionsCaption: 'Choose..'"></select>
+    <br />
+    <input type="button" data-bind="click: sendMe, enable: selectedChoice" value="Click Me" />
+</body>
+</html>

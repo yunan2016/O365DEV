@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap基础模板</title>  <!-- Bootstrap -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        .jumbotron {
+            position: relative;
+            background: #000 url("images/images.jpg") center center;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            overflow: hidden;
+        }
+    </style>
+    <!-- 以下2个插件是用于在IE8支持HTML5元素和媒体查询的，如果不用可移除 -->  <!-- 注意：Respond.js不支持file://方式的访问 -->  <!-- [if lt IE 9]>  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>  <![endif] -->
+</head>
+<body>
+    <h1>Hello, world!</h1>
+    <!-- 如果要使用Bootstrap的JS插件，则必须引入jQuery -->
+    <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <!-- Bootstrap的JS插件 -->
+    <script src="Scripts/bootstrap.js"></script>
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a data-toggle="tab" href="#home">首页</a></li>
+            <li class=""><a data-toggle="tab" href="#profile">个人资料</a></li>
+            <li class="dropdown">
+                <!-- 单击"我的书籍"时，弹出下拉菜单 -->    <a data-toggle="dropdown" href="#" class="dropdown-toggle">我的书籍    <b class="caret"></b></a>    <ul class="dropdown-menu">
+                    <li><a data-toggle="tab" href="#dropdown1">JavaScript编程精解</a></li>
+                    <li><a data-toggle="tab" href="#dropdown2">JavaScript设计模式</a></li>
+                    <li><a data-toggle="tab" href="#dropdown3">JavaScript启示录</a></li>
+                    <li><a data-toggle="tab" href="#dropdown4">深入理解Bootstrap</a></li>
+                </ul>
+            </li>
+        </ul><div class="tab-content" id="myTabContent">
+            <div id="home" class="tab-pane fade active in"><p>单击"首页"时显示该区域</p></div>  <div id="profile" class="tab-pane fade"><p>单击"个人资料"时显示该区域</p></div>  <div id="dropdown1" class="tab-pane fade"><p>单击"JavaScript编程精解"时显示该区域</p></div>  <div id="dropdown2" class="tab-pane fade"><p>单击"JavaScript设计模式"时显示该区域</p></div>  <div id="dropdown3" class="tab-pane fade"><p>单击"JavaScript启示录"时显示该区域</p></div>  <div id="dropdown4" class="tab-pane fade">
+                <p>
+                    单击"深入理解Bootstrap3"时显示该区域
+                </p>
+            </div>
+        </div>
+        <abbr title="bbb" class="lead text-right">aaa</abbr>
+        <button type="button" class="btn btn-warning btn-xs disabled">Primary</button>
+        <address>  <strong>Twitter, Inc.</strong><br>  795 Folsom Ave, Suite 600<br> San Francisco, CA 94107<br>  <abbr title="Phone">P:</abbr>  (123) 456-7890</address><address>  <strong>汤姆大叔</strong><br>  <a href="mailto:#">tomxu@outlook.com</a></address>
+        <blockquote>  <p>不愤不启，不悱不发。举一隅，不以三隅反，则吾不复也。</p><small>出自 <cite title="论语•述而">论语</cite></small></blockquote>
+
+        <div class="checkbox">  <label><input type="checkbox" value="">是否想赚大钱？</label></div>
+        <div class="radio">  <label><input type="radio" name="optionsRadios" value="female" checked>请确保，您喜欢女人？</label></div><div class="radio">  <label><input type="radio" name="optionsRadios" value="male">请确保，您喜欢男人？</label></div>
+
+        <div class="form-group has-warning has-feedback">
+            <label class="control-label" for=" inputWarning">输入长度不够！</label>
+            <input type="text" class="form-control" id="Text1">
+            <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+        </div>
+        <div class="form-group has-error">
+            <label class="control-label" for=" inputError">输入不符合要求！</label>
+            <input type="text" class="form-control" id="Text2">
+        </div>
+        <div class="form-group has-success">
+            <label class="control-label" for=" inputSuccess">输入文本符合要求！</label>
+            <input type="text" class="form-control" id="Text3">
+        </div>
+        <div class="form-group has-success has-feedback">
+            <label class="control-label" for=" inputSuccess2">Input with success</label>
+            <input type="text" class="form-control" id=" inputSuccess2" />
+            <span class="glyphicon glyphicon-ok form-control-feedback">
+            </span>
+        </div>
+
+        <!-- 标准button -->
+        <button type="button" class="btn btn-default">Default</button>
+        <!-- 提供视觉加重，表示在一组button中，该按钮是最主要的button -->
+        <button type="button" class="btn btn-primary">Primary</button>
+        <!-- 表示成功或正使用的button -->
+        <button type="button" class="btn btn-success">Success</button>
+        <!-- 表示提示信息的button --><button type="button" class="btn btn-info disabled">Info</button>
+        <!-- 表示需要进行某种行为的button --><button type="button" class="btn btn-warning">Warning</button>
+        <!-- 表示危险或错误行为的button --><button type="button" class="btn btn-danger">Danger</button>
+        <!-- 让button的行为看起来像链接一样 --><button type="button" class="btn btn-link">Link</button>
+
+        <p class="text-muted">JavaScript编程精解</p><p class="text-primary">JavaScript设计模式</p><p class="text-success">JavaScript启示录</p>
+        <p class="text-info">Backbone应用开发实战</p><p class="text-warning">深入理解Bootstrap3</p><p class="text-danger">编写可测试的JavaScript</p>
+
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+          
+
+                <div class="item active">
+                    <img src="http://placehold.it/1200x315" alt="...">
+                    <div class="carousel-caption">
+                        <h3>Caption Text</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="http://placehold.it/1200x315" alt="...">
+                    <div class="carousel-caption">
+                        <h3>Caption Text</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="http://placehold.it/1200x315" alt="...">
+                    <div class="carousel-caption">
+                        <h3>Caption Text</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+
+        </div> <!-- Carousel -->
+        <script>
+            $('.carousel').carousel({
+                interval: 3000
+            })
+        </script>
+
+
+    </div>
+</body>
+</html>

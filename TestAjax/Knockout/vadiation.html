@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script id="customMessageTemplate" type="text/html">
+        <em class="customMessage" data-bind='validationMessage: field'></em>
+    </script>
+    <fieldset>
+       
+        <label>First name: <input data-bind='value: firstName' /></label>
+        <label>Last name: <input data-bind='value: lastName' /></label>
+        <label>
+            Subscriptions:
+            <select data-bind='value: subscription, options: subscriptionOptions, optionsCaption: "Choose one..."'></select>
+        </label>
+
+    </fieldset>
+    <button type="button" data-bind='click: submit'>Submit</button>
+    <br />
+    <br />
+    <button type="button" data-bind='click: requireLocation'>Make 'Location' required</button>
+</body>
+</html>

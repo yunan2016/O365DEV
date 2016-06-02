@@ -1,0 +1,17 @@
+<NewDataSet>
+<SMSRequest>
+<username />
+<Password />
+<From />
+<To />
+<Message />
+</SMSRequest>
+<SMSRequest />
+<SMSRequest>
+<username>1</username>
+<Password>2</Password>
+<From>3</From>
+<To>4</To>
+<Message>5</Message>
+</SMSRequest>
+</NewDataSet>
