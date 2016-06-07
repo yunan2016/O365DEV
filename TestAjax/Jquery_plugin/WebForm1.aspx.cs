@@ -11,7 +11,7 @@ namespace TestAjax.Jquery_plugin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.drpFund.SelectedIndex = 0;
+            //this.drpFund.SelectedIndex = 0;
         }
 
         protected void cmdSearch_Click(object sender, EventArgs e)

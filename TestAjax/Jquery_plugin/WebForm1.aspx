@@ -5,10 +5,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <script type="text/javascript">
+        function test()
+        {
+            var someDate = new Date();
+            var numberOfDaysToAdd = 6;
+            someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
+
+            var dd = someDate.getDate();
+            var mm = someDate.getMonth() + 1;
+            var y = someDate.getFullYear();
+
+            var someFormattedDate = dd + '/' + mm + '/' + y;
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ScriptManager ID="sc1" runat="server"></asp:ScriptManager>
+        <input id="Button1123" type="button" value="button" onclick="test()" />
+      <%--  <asp:ScriptManager ID="sc1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="upFund" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
                 <asp:DropDownList ID="drpFund" runat="server" Width="160px" AutoPostBack="true">
@@ -42,7 +57,7 @@
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
             </Triggers>
-        </asp:UpdatePanel>
+        </asp:UpdatePanel>--%>
     </form>
 </body>
 </html>

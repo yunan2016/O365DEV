@@ -2,16 +2,13 @@
 Module Module1
 
     Sub Main()
-        Dim a As String = New String("This")
-        Dim b As String
+        Dim dt As Date = Date.Now
+        Console.WriteLine("Time in Different TimeZones:" & vbLf)
 
-        b = Console.ReadLine()
-
-        If a = b Then
-            Console.WriteLine("They are equal")
-        Else
-            Console.WriteLine("Not equal")
-        End If
+        Console.WriteLine("Indian Standard Time (IST): {0}", TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dt, TimeZoneInfo.Local.Id, "India Standard Time"))
+        Console.WriteLine("Eastern Standard Time (EST): {0}", TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dt, TimeZoneInfo.Local.Id, "Eastern Standard Time"))
+        Console.WriteLine("Pacific Standard Time (PST): {0}", TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dt, TimeZoneInfo.Local.Id, "Pacific Standard Time"))
+        Console.WriteLine("Greenwich Mean Time (GMT): {0}", TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dt, TimeZoneInfo.Local.Id, "GMT Standard Time"))
         Console.ReadLine()
 
 
